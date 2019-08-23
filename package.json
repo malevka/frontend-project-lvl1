@@ -1,0 +1,23 @@
+{
+  "name": "frontend-project-lvl1",
+  "version": "1.0.0",
+  "description": "The first Hexlet project in the FrontEnd cource - The Brain Games.",
+  "main": "src/bin/brain-games.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malevka/frontend-project-lvl1.git"
+  },
+  "keywords": [
+    "hexlet",
+    "brain_games"
+  ],
+  "author": "formaleva@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malevka/frontend-project-lvl1/issues"
+  },
+  "homepage": "https://github.com/malevka/frontend-project-lvl1#readme"
+}

@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-import getUserName from '../index';
+import { printWelcome, printGreeting, readInput } from '..';
 
-const welcomeMsg = 'Welcome to the Brain Games!\n';
-console.log(welcomeMsg);
+printWelcome();
+console.log('\n');
 
-const userName = getUserName();
-const greeting = `Hello, ${userName}!`;
-console.log(greeting);
+const userName = readInput('May I have your name? ');
+printGreeting(userName);

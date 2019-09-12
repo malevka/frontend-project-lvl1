@@ -1,5 +1,11 @@
 #!/usr/bin/env node
-import { printWelcome, printEvenGameRules, printGreeting, readInput, evenGame } from '..';
+import {
+  printWelcome,
+  printEvenGameRules,
+  printGreeting,
+  readInput,
+  evenGame,
+} from '..';
 
 printWelcome();
 printEvenGameRules();

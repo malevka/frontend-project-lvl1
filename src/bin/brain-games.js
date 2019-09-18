@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-import { printWelcome, printGreeting, readInput } from '..';
+import { printWelcome, printGreeting } from '..';
+import { readInput } from '../common';
 
 printWelcome();
 console.log('\n');

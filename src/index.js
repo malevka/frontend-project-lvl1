@@ -1,45 +1,47 @@
-import readlineSync from 'readline-sync';
+import { cons } from '@hexlet/pairs';
+import * as even from './games/even';
+import * as calc from './games/calc';
+import runGameProcess from './game-flow';
+import { readInput } from './common';
 
+const numberOfRounds = 3;
 
 export const printWelcome = () => {
   const welcomeMsg = 'Welcome to the Brain Games!';
   console.log(welcomeMsg);
 };
 
-export const readInput = (question) => readlineSync.question(question);
-
 export const printGreeting = (userName) => {
   console.log(`Hello, ${userName}!`);
 };
 
-export const printEvenGameRules = () => {
-  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".\n';
-  console.log(gameRules);
-};
-
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-};
-
-export const evenGame = (userName) => {
-  for (let i = 0; i < 3; i += 1) {
-    const checkingNumber = getRandomNumber(0, 50);
-    console.log(`Question: ${checkingNumber}`);
-    const answer = readInput('Your answer: ');
-    const correctAnswer = isEven(checkingNumber);
-    if (answer === correctAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'. Let's try again, ${userName}!`);
+export const printGameRules = (gameName) => {
+  switch (gameName) {
+    case 'even':
+      console.log(even.gameRules);
       break;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${userName}!`);
-    }
+    case 'calc':
+      console.log(calc.gameRules);
+      break;
+    default:
+      console.log('Unknown game.');
   }
+};
+
+export const startGame = (gameName) => {
+  const userName = readInput('May I have your name? ');
+  printGreeting(userName);
+
+  let questionDataGenerator;
+  switch (gameName) {
+    case 'even':
+      questionDataGenerator = even.questionDataGenerator;
+      break;
+    case 'calc':
+      questionDataGenerator = calc.questionDataGenerator;
+      break;
+    default:
+      questionDataGenerator = () => cons(15, 'no');
+  }
+  runGameProcess(userName, questionDataGenerator, numberOfRounds);
 };

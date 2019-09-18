@@ -1,6 +1,6 @@
 {
   "name": "frontend-project-lvl1",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The first Hexlet project in the FrontEnd cource - The Brain Games.",
   "main": "src/bin/brain-games.js",
   "bin": {
@@ -43,6 +43,7 @@
     "eslint-plugin-react": "^7.14.3"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
     "readline-sync": "^1.4.10"
   }
 }

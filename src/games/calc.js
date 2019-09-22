@@ -22,15 +22,14 @@ const operationGenerator = (index) => {
 export const gameRules = 'What is the result of the expression?\n';
 export const questionDataGenerator = () => {
   const minValueOfOperand = 0;
-  const maxValueOfOperand = 100;
+  const maxValueOfOperand = 101;
 
   const firstOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
   const secondOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
 
   const minIndexOfOperation = 0;
-  const maxIndexOfOperation = 2;
+  const maxIndexOfOperation = 3;
   const operationIndex = getRandomNumber(minIndexOfOperation, maxIndexOfOperation);
-
   const question = `${firstOperand} ${cdr(operationGenerator(operationIndex))} ${secondOperand}`;
   const answer = `${car(operationGenerator(operationIndex))(firstOperand, secondOperand)}`;
   const questionData = cons(question, answer);

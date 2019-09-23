@@ -13,8 +13,8 @@ const getGCD = (num1, num2) => {
 };
 
 export const gameRules = 'Find the greatest common divisor of given numbers.\n';
-export const questionDataGenerator = () => {
-  const minValueOfOperand = 0;
+export const generateQuestionAnswer = () => {
+  const minValueOfOperand = 1;
   const maxValueOfOperand = 101;
 
   const firstOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);

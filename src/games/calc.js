@@ -1,7 +1,7 @@
 import { cons, car, cdr } from '@hexlet/pairs';
 import { getRandomNumber } from '../common';
 
-const operationGenerator = (index) => {
+const getOperation = (index) => {
   let operation;
   switch (index) {
     case 0:
@@ -20,7 +20,7 @@ const operationGenerator = (index) => {
 };
 
 export const gameRules = 'What is the result of the expression?\n';
-export const questionDataGenerator = () => {
+export const generateQuestionAnswer = () => {
   const minValueOfOperand = 0;
   const maxValueOfOperand = 101;
 
@@ -30,8 +30,8 @@ export const questionDataGenerator = () => {
   const minIndexOfOperation = 0;
   const maxIndexOfOperation = 3;
   const operationIndex = getRandomNumber(minIndexOfOperation, maxIndexOfOperation);
-  const question = `${firstOperand} ${cdr(operationGenerator(operationIndex))} ${secondOperand}`;
-  const answer = `${car(operationGenerator(operationIndex))(firstOperand, secondOperand)}`;
+  const question = `${firstOperand} ${cdr(getOperation(operationIndex))} ${secondOperand}`;
+  const answer = `${car(getOperation(operationIndex))(firstOperand, secondOperand)}`;
   const questionData = cons(question, answer);
   return questionData;
 };

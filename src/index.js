@@ -1,6 +1,7 @@
 import { cons } from '@hexlet/pairs';
 import * as even from './games/even';
 import * as calc from './games/calc';
+import * as gcd from './games/gcd';
 import runGameProcess from './game-flow';
 import { readInput } from './common';
 
@@ -23,6 +24,9 @@ export const printGameRules = (gameName) => {
     case 'calc':
       console.log(calc.gameRules);
       break;
+    case 'gcd':
+      console.log(gcd.gameRules);
+      break;
     default:
       console.log('Unknown game.');
   }
@@ -39,6 +43,9 @@ export const startGame = (gameName) => {
       break;
     case 'calc':
       questionDataGenerator = calc.questionDataGenerator;
+      break;
+    case 'gcd':
+      questionDataGenerator = gcd.questionDataGenerator;
       break;
     default:
       questionDataGenerator = () => cons(15, 'no');

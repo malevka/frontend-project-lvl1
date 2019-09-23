@@ -3,6 +3,7 @@ import * as even from './games/even';
 import * as calc from './games/calc';
 import * as gcd from './games/gcd';
 import * as progression from './games/progression';
+import * as prime from './games/prime';
 import runGameProcess from './game-flow';
 import { readInput } from './common';
 
@@ -31,6 +32,9 @@ export const printGameRules = (gameName) => {
     case 'progression':
       console.log(progression.gameRules);
       break;
+    case 'prime':
+      console.log(prime.gameRules);
+      break;
     default:
       console.log('Unknown game.');
   }
@@ -53,6 +57,9 @@ export const startGame = (gameName) => {
       break;
     case 'progression':
       generateQuestionAnswer = progression.generateQuestionAnswer;
+      break;
+    case 'prime':
+      generateQuestionAnswer = prime.generateQuestionAnswer;
       break;
     default:
       generateQuestionAnswer = () => cons(15, 'no');

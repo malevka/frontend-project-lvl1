@@ -2,6 +2,7 @@ import { cons } from '@hexlet/pairs';
 import * as even from './games/even';
 import * as calc from './games/calc';
 import * as gcd from './games/gcd';
+import * as progression from './games/progression';
 import runGameProcess from './game-flow';
 import { readInput } from './common';
 
@@ -27,6 +28,9 @@ export const printGameRules = (gameName) => {
     case 'gcd':
       console.log(gcd.gameRules);
       break;
+    case 'progression':
+      console.log(progression.gameRules);
+      break;
     default:
       console.log('Unknown game.');
   }
@@ -36,19 +40,23 @@ export const startGame = (gameName) => {
   const userName = readInput('May I have your name? ');
   printGreeting(userName);
 
-  let questionDataGenerator;
+  let generateQuestionAnswer;
   switch (gameName) {
     case 'even':
-      questionDataGenerator = even.questionDataGenerator;
+      generateQuestionAnswer = even.generateQuestionAnswer;
       break;
     case 'calc':
-      questionDataGenerator = calc.questionDataGenerator;
+      generateQuestionAnswer = calc.generateQuestionAnswer;
       break;
     case 'gcd':
-      questionDataGenerator = gcd.questionDataGenerator;
+      generateQuestionAnswer = gcd.generateQuestionAnswer;
+      break;
+    case 'progression':
+      generateQuestionAnswer = progression.generateQuestionAnswer;
       break;
     default:
-      questionDataGenerator = () => cons(15, 'no');
+      generateQuestionAnswer = () => cons(15, 'no');
   }
-  runGameProcess(userName, questionDataGenerator, numberOfRounds);
+  const gameResult = runGameProcess(userName, generateQuestionAnswer, numberOfRounds);
+  console.log(gameResult);
 };

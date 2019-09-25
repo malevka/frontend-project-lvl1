@@ -2,25 +2,25 @@ import { cons } from '@hexlet/pairs';
 import { getRandomNumber } from '../common';
 
 const getGCD = (num1, num2) => {
-  const firstOperand = num1 > num2 ? num1 : num2;
-  const secondOperand = num1 > num2 ? num2 : num1;
-  if (firstOperand % secondOperand === 0) {
-    return secondOperand;
+  const firstArgument = num1 > num2 ? num1 : num2;
+  const secondArgument = num1 > num2 ? num2 : num1;
+  if (firstArgument % secondArgument === 0) {
+    return secondArgument;
   }
-  const remainderOfDivision = firstOperand % secondOperand;
-  const gcd = getGCD(secondOperand, remainderOfDivision);
+  const remainderOfDivision = firstArgument % secondArgument;
+  const gcd = getGCD(secondArgument, remainderOfDivision);
   return gcd;
 };
 
 export const gameRules = 'Find the greatest common divisor of given numbers.\n';
-export const generateQuestionAnswer = () => {
-  const minValueOfOperand = 1;
-  const maxValueOfOperand = 101;
+export const generateQuestionAnswerPair = () => {
+  const minValueOfArgument = 1;
+  const maxValueOfArgument = 101;
 
-  const firstOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
-  const secondOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
-  const question = `${firstOperand} ${secondOperand}`;
-  const answer = `${getGCD(firstOperand, secondOperand)}`;
-  const questionData = cons(question, answer);
-  return questionData;
+  const firstArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
+  const secondArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
+  const question = `${firstArgument} ${secondArgument}`;
+  const answer = `${getGCD(firstArgument, secondArgument)}`;
+  const questionAnswerPair = cons(question, answer);
+  return questionAnswerPair;
 };

@@ -20,18 +20,18 @@ const getOperation = (index) => {
 };
 
 export const gameRules = 'What is the result of the expression?\n';
-export const generateQuestionAnswer = () => {
-  const minValueOfOperand = 0;
-  const maxValueOfOperand = 101;
+export const generateQuestionAnswerPair = () => {
+  const minValueOfArgument = 0;
+  const maxValueOfArgument = 101;
 
-  const firstOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
-  const secondOperand = getRandomNumber(minValueOfOperand, maxValueOfOperand);
+  const firstArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
+  const secondArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
 
   const minIndexOfOperation = 0;
   const maxIndexOfOperation = 3;
   const operationIndex = getRandomNumber(minIndexOfOperation, maxIndexOfOperation);
-  const question = `${firstOperand} ${cdr(getOperation(operationIndex))} ${secondOperand}`;
-  const answer = `${car(getOperation(operationIndex))(firstOperand, secondOperand)}`;
-  const questionData = cons(question, answer);
-  return questionData;
+  const question = `${firstArgument} ${cdr(getOperation(operationIndex))} ${secondArgument}`;
+  const answer = `${car(getOperation(operationIndex))(firstArgument, secondArgument)}`;
+  const questionAnswerPair = cons(question, answer);
+  return questionAnswerPair;
 };

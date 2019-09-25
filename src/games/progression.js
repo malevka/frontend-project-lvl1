@@ -12,7 +12,7 @@ const generateProgression = (initial, progressionLenght, diff, hiddenIndex) => {
 const calculateDiff = (initial, diff, hiddenIndex) => initial + hiddenIndex * diff;
 
 export const gameRules = 'What number is missing in the progression?\n';
-export const generateQuestionAnswer = () => {
+export const generateQuestionAnswerPair = () => {
   const minValueOfInitial = 0;
   const maxValueOfInitial = 101;
   const minValueOfHiddenIndex = 0;
@@ -25,6 +25,6 @@ export const generateQuestionAnswer = () => {
   const diff = getRandomNumber(minValueOfDiff, maxValueOfDiff);
   const question = generateProgression(initial, progressionLenght, diff, hiddenIndex);
   const answer = `${calculateDiff(initial, diff, hiddenIndex)}`;
-  const questionData = cons(question, answer);
-  return questionData;
+  const questionAnswerPair = cons(question, answer);
+  return questionAnswerPair;
 };

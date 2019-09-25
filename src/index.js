@@ -1,4 +1,3 @@
-import { cons } from '@hexlet/pairs';
 import * as even from './games/even';
 import * as calc from './games/calc';
 import * as gcd from './games/gcd';
@@ -7,7 +6,7 @@ import * as prime from './games/prime';
 import runGameProcess from './game-flow';
 import { readInput } from './common';
 
-const numberOfRounds = 3;
+const roundsCount = 3;
 
 export const printWelcome = () => {
   const welcomeMsg = 'Welcome to the Brain Games!';
@@ -35,8 +34,7 @@ export const printGameRules = (gameName) => {
     case 'prime':
       console.log(prime.gameRules);
       break;
-    default:
-      console.log('Unknown game.');
+    //  no default
   }
 };
 
@@ -44,26 +42,25 @@ export const startGame = (gameName) => {
   const userName = readInput('May I have your name? ');
   printGreeting(userName);
 
-  let generateQuestionAnswer;
+  let generateQuestionAnswerPair;
   switch (gameName) {
     case 'even':
-      generateQuestionAnswer = even.generateQuestionAnswer;
+      generateQuestionAnswerPair = even.generateQuestionAnswerPair;
       break;
     case 'calc':
-      generateQuestionAnswer = calc.generateQuestionAnswer;
+      generateQuestionAnswerPair = calc.generateQuestionAnswerPair;
       break;
     case 'gcd':
-      generateQuestionAnswer = gcd.generateQuestionAnswer;
+      generateQuestionAnswerPair = gcd.generateQuestionAnswerPair;
       break;
     case 'progression':
-      generateQuestionAnswer = progression.generateQuestionAnswer;
+      generateQuestionAnswerPair = progression.generateQuestionAnswerPair;
       break;
     case 'prime':
-      generateQuestionAnswer = prime.generateQuestionAnswer;
+      generateQuestionAnswerPair = prime.generateQuestionAnswerPair;
       break;
-    default:
-      generateQuestionAnswer = () => cons(15, 'no');
+    // no default
   }
-  const gameResult = runGameProcess(userName, generateQuestionAnswer, numberOfRounds);
+  const gameResult = runGameProcess(userName, generateQuestionAnswerPair, roundsCount);
   console.log(gameResult);
 };

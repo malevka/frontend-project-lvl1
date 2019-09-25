@@ -11,11 +11,11 @@ const isPrime = (number) => {
 };
 
 export const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
-export const generateQuestionAnswer = () => {
+export const generateQuestionAnswerPair = () => {
   const minRandomNumber = 2;
   const maxRandomNumber = 1512;
   const question = getRandomNumber(minRandomNumber, maxRandomNumber);
   const answer = isPrime(question);
-  const questionData = cons(question, answer);
-  return questionData;
+  const questionAnswerPair = cons(question, answer);
+  return questionAnswerPair;
 };

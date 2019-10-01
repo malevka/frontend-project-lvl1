@@ -1,6 +1,6 @@
 # frontend-project-lvl1
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/ceded26800464f01b77e/maintainability)](https://codeclimate.com/github/malevka/frontend-project-lvl1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/ceded26800464f01b77e/test_coverage)](https://codeclimate.com/github/malevka/frontend-project-lvl1/test_coverage)
 [![Build Status](https://travis-ci.com/malevka/frontend-project-lvl1.svg?branch=master)](https://travis-ci.com/malevka/frontend-project-lvl1)
 ## Installation and Usage
 ### Install brain-games

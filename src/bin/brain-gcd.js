@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import { printWelcome, printGameRules, startGame } from '..';
+import startBrainGcd from '../games/gcd';
 
-const gameName = 'gcd';
-printWelcome();
-printGameRules(gameName);
-startGame(gameName);
+startBrainGcd();

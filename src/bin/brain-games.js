@@ -1,9 +1,4 @@
 #!/usr/bin/env node
-import { printWelcome, printGreeting } from '..';
-import { readInput } from '../common';
+import { startBrainGames } from '..';
 
-printWelcome();
-console.log('\n');
-
-const userName = readInput('May I have your name? ');
-printGreeting(userName);
+startBrainGames();

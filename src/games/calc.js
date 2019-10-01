@@ -1,26 +1,26 @@
-import { cons, car, cdr } from '@hexlet/pairs';
-import { getRandomNumber } from '../common';
+import { cons } from '@hexlet/pairs';
+import { getRandomNumber, runGameProcess } from '..';
 
+const gameDescription = 'What is the result of the expression?\n';
+const operations = ['+', '-', '*'];
 const getOperation = (index) => {
   let operation;
   switch (index) {
     case 0:
-      operation = cons((a, b) => a + b, '+');
+      operation = (a, b) => a + b;
       break;
     case 1:
-      operation = cons((a, b) => a - b, '-');
+      operation = (a, b) => a - b;
       break;
     case 2:
-      operation = cons((a, b) => a * b, '*');
+      operation = (a, b) => a * b;
       break;
-    default:
-      operation = cons((a, b) => a * b, '+');
+    // no default
   }
   return operation;
 };
 
-export const gameRules = 'What is the result of the expression?\n';
-export const generateQuestionAnswerPair = () => {
+const generateQuestionAnswer = () => {
   const minValueOfArgument = 0;
   const maxValueOfArgument = 101;
 
@@ -30,8 +30,13 @@ export const generateQuestionAnswerPair = () => {
   const minIndexOfOperation = 0;
   const maxIndexOfOperation = 3;
   const operationIndex = getRandomNumber(minIndexOfOperation, maxIndexOfOperation);
-  const question = `${firstArgument} ${cdr(getOperation(operationIndex))} ${secondArgument}`;
-  const answer = `${car(getOperation(operationIndex))(firstArgument, secondArgument)}`;
-  const questionAnswerPair = cons(question, answer);
-  return questionAnswerPair;
+  const question = `${firstArgument} ${operations[operationIndex]} ${secondArgument}`;
+  const answer = `${getOperation(operationIndex)(firstArgument, secondArgument)}`;
+  const questionAnswer = cons(question, answer);
+  return questionAnswer;
+};
+
+export default () => {
+  const gameResult = runGameProcess(gameDescription, generateQuestionAnswer);
+  console.log(gameResult);
 };

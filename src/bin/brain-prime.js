@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import { printWelcome, printGameRules, startGame } from '..';
+import startBrainPrime from '../games/prime';
 
-const gameName = 'prime';
-printWelcome();
-printGameRules(gameName);
-startGame(gameName);
+startBrainPrime();

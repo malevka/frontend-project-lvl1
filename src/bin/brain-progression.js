@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import { printWelcome, printGameRules, startGame } from '..';
+import startBrainProgression from '../games/progression';
 
-const gameName = 'progression';
-printWelcome();
-printGameRules(gameName);
-startGame(gameName);
+startBrainProgression();

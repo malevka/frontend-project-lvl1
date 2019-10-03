@@ -15,7 +15,7 @@ const isPrime = (number) => {
 };
 
 export const generateQuestionAnswer = () => {
-  const minRandomNumber = 2;
+  const minRandomNumber = -2572;
   const maxRandomNumber = 3572;
   const question = getRandomNumber(minRandomNumber, maxRandomNumber);
   const answer = isPrime(question) ? 'yes' : 'no';

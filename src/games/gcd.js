@@ -1,31 +1,30 @@
 import { cons } from '@hexlet/pairs';
 import { getRandomNumber, runGameProcess } from '..';
 
-const gameDescription = 'Find the greatest common divisor of given numbers.\n';
-const getGCD = (num1, num2) => {
-  const firstArgument = num1 > num2 ? num1 : num2;
-  const secondArgument = num1 > num2 ? num2 : num1;
-  if (firstArgument % secondArgument === 0) {
-    return secondArgument;
+const gameDescription = 'Find the greatest common divisor of given numbers.';
+const minValueOfArgument = 1;
+const maxValueOfArgument = 101;
+
+const getGcd = (num1, num2) => {
+  const max = num1 > num2 ? num1 : num2;
+  const min = num1 > num2 ? num2 : num1;
+  if (max % min === 0) {
+    return min;
   }
-  const remainderOfDivision = firstArgument % secondArgument;
-  const gcd = getGCD(secondArgument, remainderOfDivision);
+  const remainderOfDivision = max % min;
+  const gcd = getGcd(min, remainderOfDivision);
   return gcd;
 };
 
 export const generateQuestionAnswer = () => {
-  const minValueOfArgument = 1;
-  const maxValueOfArgument = 101;
-
   const firstArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
   const secondArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
   const question = `${firstArgument} ${secondArgument}`;
-  const answer = `${getGCD(firstArgument, secondArgument)}`;
+  const answer = getGcd(firstArgument, secondArgument).toString();
   const questionAnswer = cons(question, answer);
   return questionAnswer;
 };
 
 export default () => {
-  const gameResult = runGameProcess(gameDescription, generateQuestionAnswer);
-  console.log(gameResult);
+  runGameProcess(gameDescription, generateQuestionAnswer);
 };

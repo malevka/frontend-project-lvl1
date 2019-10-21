@@ -1,10 +1,9 @@
 {
   "name": "frontend-project-lvl1",
-  "version": "2.5.4",
+  "version": "3.0.0",
   "description": "The first Hexlet project in the FrontEnd cource - The Brain Games.",
   "main": "src/bin/brain-games.js",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/brain-even.js",
     "brain-calc": "dist/bin/brain-calc.js",
     "brain-gcd": "dist/bin/brain-gcd.js",

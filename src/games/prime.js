@@ -1,12 +1,14 @@
 import { cons } from '@hexlet/pairs';
 import { getRandomNumber, runGameProcess } from '..';
 
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const min = -2572;
+const max = 3572;
 const isPrime = (number) => {
   if (number <= 1) {
     return false;
   }
-  for (let i = 2; i < number; i += 1) {
+  for (let i = 2; i <= number / 2; i += 1) {
     if (number % i === 0) {
       return false;
     }
@@ -15,15 +17,12 @@ const isPrime = (number) => {
 };
 
 export const generateQuestionAnswer = () => {
-  const minRandomNumber = -2572;
-  const maxRandomNumber = 3572;
-  const question = getRandomNumber(minRandomNumber, maxRandomNumber);
+  const question = getRandomNumber(min, max);
   const answer = isPrime(question) ? 'yes' : 'no';
   const questionAnswer = cons(question, answer);
   return questionAnswer;
 };
 
 export default () => {
-  const gameResult = runGameProcess(gameDescription, generateQuestionAnswer);
-  console.log(gameResult);
+  runGameProcess(gameDescription, generateQuestionAnswer);
 };

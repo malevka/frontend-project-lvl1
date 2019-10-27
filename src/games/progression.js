@@ -1,17 +1,18 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNumber, runGameProcess } from '..';
+import runGameProcess from '..';
+import getRandomNumber from '../utils';
 
 const gameDescription = 'What number is missing in the progression?';
 const minValueOfInitial = 0;
 const maxValueOfInitial = 101;
-const minValueOfHiddenIndex = 0;
-const maxValueOfHiddenIndex = 9;
+const progressionLenght = 10;
+const minIndexOfHiddenElement = 0;
+const maxIndexOfHiddenElement = progressionLenght - 1;
 const minValueOfDiff = 1;
 const maxValueOfDiff = 101;
-const progressionLenght = 10;
-const generateProgression = (initial, diff) => {
+const generateProgression = (initial, diff, lenght) => {
   const progression = [];
-  for (let i = 0; i < progressionLenght; i += 1) {
+  for (let i = 0; i < lenght; i += 1) {
     const nextTerm = initial + i * diff;
     progression.push(nextTerm.toString());
   }
@@ -19,13 +20,12 @@ const generateProgression = (initial, diff) => {
 };
 
 export const generateQuestionAnswer = () => {
-  const hiddenIndex = getRandomNumber(minValueOfHiddenIndex, maxValueOfHiddenIndex);
+  const hiddenElementIndex = getRandomNumber(minIndexOfHiddenElement, maxIndexOfHiddenElement);
   const initial = getRandomNumber(minValueOfInitial, maxValueOfInitial);
   const diff = getRandomNumber(minValueOfDiff, maxValueOfDiff);
-  const progression = generateProgression(initial, diff);
-  const hiddenNumberOfProgression = progression[hiddenIndex];
-  const question = progression.join(' ').replace(hiddenNumberOfProgression, '..');
-  const answer = hiddenNumberOfProgression.toString();
+  const progression = generateProgression(initial, diff, progressionLenght);
+  const question = progression.join(' ').replace(progression[hiddenElementIndex], '..');
+  const answer = progression[hiddenElementIndex].toString();
   const questionAnswer = cons(question, answer);
   return questionAnswer;
 };

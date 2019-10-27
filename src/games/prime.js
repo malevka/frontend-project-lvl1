@@ -1,5 +1,6 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNumber, runGameProcess } from '..';
+import runGameProcess from '..';
+import getRandomNumber from '../utils';
 
 const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const min = -2572;

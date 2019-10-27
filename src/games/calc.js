@@ -1,5 +1,6 @@
 import { cons } from '@hexlet/pairs';
-import { getRandomNumber, runGameProcess } from '..';
+import runGameProcess from '..';
+import getRandomNumber from '../utils';
 
 const gameDescription = 'What is the result of the expression?';
 const minValueOfArgument = 0;
@@ -28,9 +29,9 @@ const getOperation = (operator) => {
 const generateQuestionAnswer = () => {
   const firstArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
   const secondArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
-  const operationIndex = getRandomNumber(minIndexOfOperation, maxIndexOfOperation);
-  const question = `${firstArgument} ${operations[operationIndex]} ${secondArgument}`;
-  const answer = getOperation(operations[operationIndex])(firstArgument, secondArgument).toString();
+  const operation = operations[getRandomNumber(minIndexOfOperation, maxIndexOfOperation)];
+  const question = `${firstArgument} ${operation} ${secondArgument}`;
+  const answer = getOperation(operation)(firstArgument, secondArgument).toString();
   const questionAnswer = cons(question, answer);
   return questionAnswer;
 };

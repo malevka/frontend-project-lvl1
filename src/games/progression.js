@@ -26,8 +26,7 @@ export const generateQuestionAnswer = () => {
   const progression = generateProgression(initial, diff, progressionLenght);
   const question = progression.join(' ').replace(progression[hiddenElementIndex], '..');
   const answer = progression[hiddenElementIndex].toString();
-  const questionAnswer = cons(question, answer);
-  return questionAnswer;
+  return cons(question, answer);
 };
 
 export default () => {

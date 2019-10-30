@@ -20,8 +20,7 @@ const isPrime = (number) => {
 export const generateQuestionAnswer = () => {
   const question = getRandomNumber(min, max);
   const answer = isPrime(question) ? 'yes' : 'no';
-  const questionAnswer = cons(question, answer);
-  return questionAnswer;
+  return cons(question, answer);
 };
 
 export default () => {

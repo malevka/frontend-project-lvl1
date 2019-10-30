@@ -9,8 +9,7 @@ const isEven = (number) => number % 2 === 0;
 const generateQuestionAnswer = () => {
   const question = getRandomNumber(min, max);
   const answer = isEven(question) ? 'yes' : 'no';
-  const questionAnswer = cons(question, answer);
-  return questionAnswer;
+  return cons(question, answer);
 };
 
 export default () => {

@@ -7,7 +7,7 @@ const minValueOfArgument = 0;
 const maxValueOfArgument = 101;
 const operations = ['+', '-', '*'];
 const minIndexOfOperation = 0;
-const maxIndexOfOperation = operations.length;
+const maxIndexOfOperation = operations.length - 1;
 
 const getOperation = (operator) => {
   let operation;
@@ -32,8 +32,7 @@ const generateQuestionAnswer = () => {
   const operation = operations[getRandomNumber(minIndexOfOperation, maxIndexOfOperation)];
   const question = `${firstArgument} ${operation} ${secondArgument}`;
   const answer = getOperation(operation)(firstArgument, secondArgument).toString();
-  const questionAnswer = cons(question, answer);
-  return questionAnswer;
+  return cons(question, answer);
 };
 
 export default () => {

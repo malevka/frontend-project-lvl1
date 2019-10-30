@@ -22,8 +22,7 @@ export const generateQuestionAnswer = () => {
   const secondArgument = getRandomNumber(minValueOfArgument, maxValueOfArgument);
   const question = `${firstArgument} ${secondArgument}`;
   const answer = getGcd(firstArgument, secondArgument).toString();
-  const questionAnswer = cons(question, answer);
-  return questionAnswer;
+  return cons(question, answer);
 };
 
 export default () => {

@@ -17,12 +17,12 @@ export default (gameDescription, generatequestionAnswer) => {
     console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer === correctAnswer) {
-      const successMessage = i === roundsCount ? `Congratulations, ${userName}!` : 'Correct!';
-      console.log(successMessage);
+      console.log('Correct!');
     } else {
-      const failMessage = `${answer} is wrong answer ;(. Correct answer was ${correctAnswer}. Let's try again, ${userName}!`;
-      console.log(failMessage);
-      break;
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
   }
+  console.log(`Congratulations, ${userName}!`);
 };
